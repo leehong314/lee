@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Hong | 映像目击者</title>
+    <style>
+        /* 深色调设计：营造深夜沉思的氛围 */
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #eaeaea;
+            --text-dim: #999;
+            --accent: #d4a373; /* 琥珀色调，模拟电影胶片感 */
+        }
+        body {
+            font-family: -apple-system, "Noto Sans SC", "PingFang SC", sans-serif;
+            line-height: 1.8;
+            color: var(--text-main);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background-color: var(--bg-color);
+        }
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 60px;
+        }
+        h1 { font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 15px; color: #fff; font-weight: 700; }
+        .subtitle { color: var(--text-dim); font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* 卡片和交互设计 */
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid #282828;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        .post-card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+        .post-image {
+            width: 100%;
+            height: auto; /* 保持原比例 */
+            display: block;
+            filter: grayscale(20%) brightness(0.9);
+        }
+
+        /* 折叠组件样式 */
+        details {
+            padding: 25px;
+            cursor: pointer;
+        }
+        summary {
+            list-style: none; /* 隐藏默认箭头 */
+            outline: none;
+        }
+        summary::-webkit-details-marker { display: none; } /* Safari 兼容 */
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .post-title { font-weight: 600; font-size: 1.2rem; color: #fff; }
+        .post-title:hover { color: var(--accent); }
+        .click-hint { font-size: 0.7rem; color: #555; border: 1px solid #333; padding: 2px 10px; border-radius: 4px; }
+
+        /* 点开后的正文样式 */
+        .content-box {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+            font-size: 0.98rem;
+            color: #ccc;
+            text-align: justify;
+            animation: fadeIn 0.5s ease;
+        }
+        .my-thought-meta { font-size: 0.75rem; color: var(--text-dim); display: block; margin-bottom: 15px; letter-spacing: 1px; }
+        .my-thought { margin-bottom: 20px; }
+        .my-thought:last-child { margin-bottom: 0; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-bottom: 50px;
+            font-size: 0.7rem;
+            color: #555;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>映像与存在</h1>
+        <div class="subtitle">—— 在光影中寻找目击现实的可能</div>
+    </header>
+
+    <main>
+        <article class="post-card">
+            <img src="https://example.com/images/gulingjie.jpg" class="post-image" alt="枯岭街少年杀人事件 高清截图">
+            <details>
+                <summary>
+                    <div class="summary-header">
+                        <div class="post-title">《枯岭街少年杀人事件》：无法逃离的夜</div>
+                        <div class="click-hint">点击点开影评和名字</div>
+                    </div>
+                </summary>
+                <div class="content-box">
+                    <span class="my-thought-meta">BY: LEE HONG | 杨德昌 / 枯岭街 / 目击者</span>
+                    <p class="my-thought">
+                        杨德昌用四个小时的精准刻画，展示了个体在社会共识下的挣扎。小四的刀不仅刺向了对象，也刺破了那个时代脆弱的虚假安定。在这里，每一个少年不仅是规则的受害者，更是时代真相的目击者。每次看都会想起，我们在被所谓的“共识”鞭笞时，是否依然保有那份对意志的尊严？
+                    </p>
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="https://example.com/images/yiyi.jpg" class="post-image" alt="一一 高清截图">
+            <details>
+                <summary>
+                    <div class="summary-header">
+                        <div class="post-title">《一一》：洋洋的背影与镜头的两端</div>
+                        <div class="click-hint">点击点开影评和名字</div>
+                    </div>
+                </summary>
+                <div class="content-box">
+                    <span class="my-thought-meta">BY: LEE HONG | 杨德昌 / 一一 / 存在主义</span>
+                    <p class="my-thought">
+                        “我也老了。”电影里的这句对白，配合着洋洋拍人后背的镜头，完成了对生命最彻底的注视。我们每个人都只能看到一半的真相，而电影帮我们补全了另一半。生活就是这样，一半是我们在经历的，另一半是我们要去目击的。这是一个关于存在的问题，我们在生活的中游，总是想把那一半看不见的也看清楚。
+                    </p>
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="https://example.com/images/bladerunner2049.jpg" class="post-image" alt="银翼杀手 2049 高清截图">
+            <details>
+                <summary>
+                    <div class="summary-header">
+                        <div class="post-title">银翼杀手 2049：关于意志的尊严</div>
+                        <div class="click-hint">点击点开影评和名字</div>
+                    </div>
+                </summary>
+                <div class="content-box">
+                    <span class="my-thought-meta">BY: LEE HONG | 丹尼斯·维伦纽瓦 / 硬派科幻 / 意志</span>
+                    <p class="my-thought">
+                        在极端的反乌托邦环境下，真正的硬派不是暴力，而是即便知道真相残酷，依然选择去做那件“正确的事”。这种意志，正是电影与现实交汇处最迷人的地方。每次看到K在雪地中倒下，都会觉得那是一种存在主义的觉醒。
+                    </p>
+                </div>
+            </details>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2026 Lee's Blog | 映像目击者</p>
+        <p style="margin-top: 5px;">沉心备考，6月见</p>
+    </footer>
+
+</body>
+  </html>
