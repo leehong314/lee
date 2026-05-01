@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Hong | 映像目击者</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --text-main: #eaeaea;
+            --accent: #d4a373;
+        }
+
+        /* 动态天空云块背景 */
+        body {
+            margin: 0;
+            color: var(--text-main);
+            font-family: -apple-system, "Noto Sans SC", sans-serif;
+            background: var(--bg-dark);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        .sky-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, #080a0f 0%, #1a1a2e 100%);
+            z-index: -2;
+        }
+
+        /* 模拟缓慢移动的云块 */
+        .clouds {
+            position: fixed;
+            top: 0; left: 0; width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            animation: cloudMove 120s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes cloudMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-10%, -10%); }
+        }
+
+        .container { max-width: 650px; margin: 0 auto; padding: 40px 20px; }
+
+        header { text-align: center; margin-bottom: 80px; }
+        h1 { font-size: 2rem; letter-spacing: 5px; margin-bottom: 10px; font-weight: 800; }
+        .intro { color: #888; font-size: 0.9rem; letter-spacing: 1px; }
+
+        .section-label { 
+            font-size: 1.2rem; color: #555; text-align: center; 
+            margin: 60px 0 30px; letter-spacing: 4px; border-bottom: 1px solid #222; padding-bottom: 10px;
+        }
+
+        /* 卡片设计 */
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border: 1px solid #282828;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .post-img { width: 100%; height: auto; display: block; filter: brightness(0.8); cursor: pointer; }
+
+        details { padding: 20px; }
+        summary { list-style: none; outline: none; cursor: pointer; }
+        summary::-webkit-details-marker { display: none; }
+
+        .title-row { display: flex; justify-content: space-between; align-items: center; }
+        .title { font-weight: 600; font-size: 1.15rem; color: var(--accent); }
+        .hint { font-size: 0.7rem; color: #444; border: 1px solid #222; padding: 2px 8px; border-radius: 4px; }
+
+        .content {
+            margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;
+            font-size: 0.95rem; color: #ccc; text-align: justify;
+            animation: slideIn 0.4s ease;
+        }
+
+        .author-tag { font-size: 0.75rem; color: #666; margin-bottom: 10px; display: block; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 100px; padding: 60px 0; border-top: 1px solid #222;
+            text-align: center; color: #444; font-size: 0.8rem;
+        }
+        .footer-motto { color: #888; letter-spacing: 2px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="sky-bg"></div>
+    <div class="clouds"></div>
+
+    <div class="container">
+        <header>
+            <h1>Lee Hong | 映像目击者</h1>
+            <div class="intro">没事就爱看点电影的会想一下存在主义的小人物</div>
+        </header>
+
+        <div class="section-label">MOVIE</div>
+
+        <article class="post-card">
+            <img src="images/gulingjie.jpg" class="post-img" alt="牯岭街少年杀人事件">
+            <details>
+                <summary>
+                    <div class="title-row">
+                        <div class="title">《牯岭街少年杀人事件》</div>
+                        <div class="hint">展开影评</div>
+                    </div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    小四的刀刺向的不仅是对象，更是那个被社会共识紧紧勒住脖子的时代。杨德昌用四个小时的冷静，记录了一个少年如何试图在坍塌的世界里寻找尊严，却最终成为废墟的一部分。存在本身，竟如此脆弱而决绝。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/yiyi.jpg" class="post-img" alt="一一">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《一一》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    洋洋拿着相机拍人的后背，说：“你只能看到一半的真相。”这电影就是那台相机，带我们目击了生命中那隐没在日常琐碎里的另一半。我们每个人都在这长长的镜头里，孤独地寻找着存在的证据。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/fa_tiao_cheng.jpg" class="post-img" alt="发条橙">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《发条橙》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    当一个人失去了选择“恶”的权利，他还是一个完整的人吗？理性的鞭笞如果剥夺了自由意志，留下的不过是机械的空壳。库布里克用色彩和贝多芬，谱写了一曲关于人性尊严的残酷挽歌。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/quan_jin_shu_wai_ke.jpg" class="post-img" alt="全金属外壳">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《全金属外壳》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    前半段是精神的剥离，后半段是肉体的粉碎。战争机器不仅制造杀戮，更在制造某种整齐划一的虚无。在这个世界里，理性变成了最冰冷的杀器。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/ye_cao_mei.jpg" class="post-img" alt="野草莓">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《野草莓》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    一场通往颁奖礼的旅程，却成了深入灵魂深处的考古。老人在梦境与现实的交叠中，目击了自己一生的孤独与错过。原来存在主义的终点，是与那个曾经苍白的自己达成和解。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/sheng_nv_zhen_de.jpg" class="post-img" alt="圣女贞德蒙难记">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《圣女贞德蒙难记》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    那是影史上最震撼的大特写。在那充满痛苦与神圣的脸庞上，我目击了信仰如何在这理性的、审判的、鞭笞的世界里，完成了最后的存在主义式的超越。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/chong_qing_sen_lin.jpg" class="post-img" alt="重庆森林">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《重庆森林》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    呼吸着过期的罐头味道，在霓虹迷离的城市里擦肩而过。存在只是那0.01公分的距离，是那种即使知道没有期限，依然想要在这混乱世界里寻找某种感情连接的徒劳。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/qing_shu.jpg" class="post-img" alt="情书">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《情书》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    你好吗？我很好。大雪掩盖了所有的秘密，却掩盖不住对那个早已离去的人的存在主义式的思念。原来最深沉的感情，往往连接在那些从未寄出的信笺里。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/du_ling_zhi_ma.jpg" class="post-img" alt="都灵之马">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《都灵之马》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    风沙，土豆，日复一日。这是一种近乎静止的鞭笞。当世界在绝望的循环中一点点熄灭，存在本身变成了一种沉重而无言的忍受。极其硬派的虚无，极其真实的目击。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/tian_guo_wang_chao.jpg" class="post-img" alt="天国王朝">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《天国王朝》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    在耶路撒冷的城墙下，理性与疯狂在血泊中博弈。什么是天国？天国不在石头里，而在人心中。那是关于荣誉、责任和在这满目疮痍的现实中，守护那一丝理性的尊严。
+                </div>
+            </details>
+        </article>
+
+        <div class="section-label">ANIME</div>
+
+        <article class="post-card">
+            <img src="images/jian_feng.jpg" class="post-img" alt="剑风传奇">
+            <details>
+                <summary>
+                    <div class="title-row"><div class="title">《剑风传奇》</div><div class="hint">展开影评</div></div>
+                </summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG 的目击档案</span>
+                    格斯那柄巨大的斩龙剑，是对命运和所谓“因果律”最硬派
