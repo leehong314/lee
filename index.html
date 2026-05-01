@@ -7,6 +7,239 @@
     <style>
         :root {
             --bg-dark: #050505;
+            --card-bg: rgba(26, 26, 26, 0.95);
+            --text-main: #eaeaea;
+            --accent: #d4a373;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text-main);
+            font-family: -apple-system, "Noto Sans SC", sans-serif;
+            background: var(--bg-dark);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* 动态天空云块 */
+        .sky-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, #080a0f 0%, #1a1a2e 100%);
+            z-index: -2;
+        }
+        .clouds {
+            position: fixed;
+            top: 0; left: 0; width: 200%; height: 200%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            animation: cloudMove 150s linear infinite;
+            z-index: -1;
+        }
+        @keyframes cloudMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-10%, -5%); }
+        }
+
+        .container { max-width: 650px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 80px; }
+        h1 { font-size: 1.8rem; letter-spacing: 5px; margin-bottom: 12px; font-weight: 800; color: #fff; }
+        .intro { color: #888; font-size: 0.88rem; letter-spacing: 1px; }
+
+        .section-label { 
+            font-size: 1.1rem; color: #555; text-align: center; 
+            margin: 80px 0 40px; letter-spacing: 8px; border-bottom: 1px solid #222; padding-bottom: 10px;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid #282828;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .post-img { width: 100%; height: auto; display: block; filter: brightness(0.7); transition: 0.5s; }
+        .post-card:hover .post-img { filter: brightness(0.9); }
+
+        details { padding: 25px; }
+        summary { list-style: none; outline: none; cursor: pointer; }
+        summary::-webkit-details-marker { display: none; }
+
+        .title-row { display: flex; justify-content: space-between; align-items: center; }
+        .title { font-weight: 600; font-size: 1.1rem; color: var(--accent); letter-spacing: 1px; }
+        .hint { font-size: 0.65rem; color: #444; border: 1px solid #333; padding: 2px 8px; border-radius: 4px; }
+
+        .content {
+            margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;
+            font-size: 0.95rem; color: #ccc; text-align: justify;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .author-tag { font-size: 0.7rem; color: #555; margin-bottom: 15px; display: block; letter-spacing: 2px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        footer {
+            margin-top: 120px; padding: 80px 0; border-top: 1px solid #222;
+            text-align: center;
+        }
+        .footer-motto { color: #888; letter-spacing: 4px; margin-bottom: 25px; font-weight: 300; }
+        .footer-sub { color: #333; font-size: 0.75rem; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="sky-bg"></div>
+    <div class="clouds"></div>
+
+    <div class="container">
+        <header>
+            <h1>Lee Hong | 映像目击者</h1>
+            <div class="intro">没事就爱看点电影的会想一下存在主义的小人物</div>
+        </header>
+
+        <div class="section-label">THE CINEMA / 电影</div>
+
+        <article class="post-card">
+            <img src="images/yiyi.jpg" class="post-img" alt="一一">
+            <details>
+                <summary><div class="title-row"><div class="title">《一一》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 存在之镜</span>
+                    杨德昌借洋洋之手，拍下了我们永远看不到的“后背”。生活在这部电影里既不是悲剧也不是喜剧，它只是“发生”了。目击了电影里三代人的轮回，我开始理解，所谓的真相，往往藏在那些被我们忽略的、平凡的瞬间里。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/gulingjie.jpg" class="post-img" alt="牯岭街">
+            <details>
+                <summary><div class="title-row"><div class="title">《牯岭街少年杀人事件》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 时代的极刑</span>
+                    在昏暗的牯岭街，少年试图用一柄短刀划破笼罩在头顶的社会共识。这不是一个人的叛逆，而是一个时代的葬礼。目击小四的坠落，我看到的是个体意志在冰冷的体制面前，那最后一点无力的火花。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/fa_tiao_cheng.jpg" class="post-img" alt="发条橙">
+            <details>
+                <summary><div class="title-row"><div class="title">《发条橙》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 被阉割的自由</span>
+                    理性的鞭笞如果杀死了选择“恶”的权利，那么人就不再是人，只是一个被拧好发条的橙子。库布里克用那种诡异的古典乐，目击了人类如何打着秩序的旗号，剥夺了最核心的自由意志。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/quan_jin_shu_wai_ke.jpg" class="post-img" alt="全金属外壳">
+            <details>
+                <summary><div class="title-row"><div class="title">《全金属外壳》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 机械的洗礼</span>
+                    从训练营到泥泞的战场，理性的洗礼将活生生的人变成全金属的机器。在这种冰冷的目击中，战争不再是宏大的英雄史诗，而是对灵魂最彻底的剥离与粉碎。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/ye_cao_mei.jpg" class="post-img" alt="野草莓">
+            <details>
+                <summary><div class="title-row"><div class="title">《野草莓》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 回溯的觉醒</span>
+                    老医生的梦境，是向死而生的一场考古。在野草莓丛中目击过去的自己，那种存在主义式的苍凉感扑面而来。原来最终的和解，不是对过去的改变，而是对孤独的坦然接受。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/sheng_nv_zhen_de.jpg" class="post-img" alt="圣女贞德">
+            <details>
+                <summary><div class="title-row"><div class="title">《圣女贞德蒙难记》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 沉默的超越</span>
+                    德莱叶的大特写里，没有多余的修饰，只有贞德那双目击了神性的眼睛。在理性的法庭和权力的鞭笞下，这种沉默的力量完成了对死亡的最终超越。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/chong_qing_sen_lin.jpg" class="post-img" alt="重庆森林">
+            <details>
+                <summary><div class="title-row"><div class="title">《重庆森林》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 0.01公分的疏离</span>
+                    在钢筋水泥的森林里，每个人都是一座孤岛。感情的连接如此随机且脆弱，就像那罐会过期的凤梨罐头。我们目击了城市的迷幻，也目击了存在主义式的孤独底色。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/qing_shu.jpg" class="post-img" alt="情书">
+            <details>
+                <summary><div class="title-row"><div class="title">《情书》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 冰封的连接</span>
+                    所有的思念都藏在雪地和借书卡里。这是一场漫长的告别，也是对“存在”最温柔的一次目击。原来感情的连接不一定要有回应，它本身就是一种存在的证明。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/du_ling_zhi_ma.jpg" class="post-img" alt="都灵之马">
+            <details>
+                <summary><div class="title-row"><div class="title">《都灵之马》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 虚无的终结</span>
+                    狂风、老马、煮熟的土豆。这电影是对生命最硬派的注视。当世界在绝望中渐渐熄灭，我们目击的是一种近乎原始的、面对虚无时最后的、沉默的对峙。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/tian_guo_wang_chao.jpg" class="post-img" alt="天国王朝">
+            <details>
+                <summary><div class="title-row"><div class="title">《天国王朝》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 理性的孤城</span>
+                    什么是耶路撒冷？它是废墟，也是一切。在宗教与权力的狂热鞭笞下，我目击的是一个人如何用理性的光辉守住内心的城池。那不仅是荣誉，更是存在的尊严。
+                </div>
+            </details>
+        </article>
+
+        <div class="section-label">THE ANIME / 动漫</div>
+
+        <article class="post-card">
+            <img src="images/jian_feng.jpg" class="post-img" alt="剑风传奇">
+            <details>
+                <summary><div class="title-row"><div class="title">《剑风传奇》</div><div class="hint">展开影评</div></div></summary>
+                <div class="content">
+                    <span class="author-tag">LEE HONG | 挣扎的铁块</span>
+                    格斯那柄斩龙剑，是对宿命和所谓“因果律”最决绝的鞭笞。在蚀之刻后的地狱里，目击那具伤痕累累的身体依然在挥剑，这便是我能想象到的，对存在主义最硬核的诠释。
+                </div>
+            </details>
+        </article>
+
+        <article class="post-card">
+            <img src="images/hei_jiao.jpg" class="post-img" alt="黑礁">
+            <details>
+                <summary><div class="title-row"><div class="title">《黑礁》</div><div class="h<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Hong | 映像目击者</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
             --card-bg: rgba(26, 26, 26, 0.9);
             --text-main: #eaeaea;
             --accent: #d4a373;
