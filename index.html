@@ -437,7 +437,21 @@
     </div>
 </body>
 </html>
+<div class="section-label">OBSERVATIONS / 目击者说</div>
 
+<div id="waline" style="max-width: 650px; margin: 0 auto 100px;"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+    init({
+        el: '#waline',
+        serverURL: 'https://leehong.vercel.app', 
+        placeholder: '在此留下你的目击记录...',
+        dark: true, 
+    });
+</script>
         
         </footer>
     </div>
